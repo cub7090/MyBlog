@@ -3,6 +3,8 @@ class Post < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  belongs_to :author
+
   scope :most_recent, -> { order(id: :desc) }
 
   def should_generate_new_friendly_id?
@@ -12,5 +14,4 @@ class Post < ApplicationRecord
   def published_date
   	"Published on #{created_at.strftime('%-b %-d %Y')}"
   end
-
 end

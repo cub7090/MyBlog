@@ -6,23 +6,36 @@
     <a class="navbar-brand" href="/">CUB<span class='light'>Blog</span></a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <%= link_to 'Blog', root_path, class: "nav-link #{yield(:blog_active)}" %>
+        <%= link_to 'All Posts', root_path, class: "nav-link #{yield(:blog_active)}" %>
       </li>
       <li class="nav-item">
         <%= link_to 'About', about_path, class: "nav-link #{yield(:about_active)}" %>
       </li>
-      <li class="nav-item">
-        <%= link_to 'Contact', contact_path, class: "nav-link #{yield(:contact_active)}" %>
+      <% if author_signed_in? %>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_author.name %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to 'List', authors_posts_path, class: "dropdown-item" %>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <%= link_to 'Logout', destroy_author_session_path, method: :delete,class: "dropdown-item" %>
+        </div>
       </li>
+      <% end %>
     </ul>
+
     <ul class="navbar-nav mr-sm-4 mt-2 mt-lg-0">
-      <li class="nav-item">
-        <%= link_to 'New Post', new_post_path, class: "nav-link #{yield(:contact_active)}" %>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
+      <% if author_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'New Post', new_authors_post_path, class: "nav-link #{yield(:contact_active)}" %>
+        </li>
+      <% end %>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
 </nav>
