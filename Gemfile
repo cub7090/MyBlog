@@ -27,6 +27,8 @@ gem 'bootstrap', '~> 4.1', '>= 4.1.1'
 gem 'jquery-rails'
 gem 'friendly_id', '~> 5.2', '>= 5.2.4'
 gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'ckeditor'
+gem "paperclip", "~> 6.0.0"
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
