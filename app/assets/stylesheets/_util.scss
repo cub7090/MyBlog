@@ -1,12 +1,15 @@
 .thin-text { font-weight: 300; }
 
 .apple_pagination {
+  display: flex;
   background: #f1f1f1;
   border: 1px solid #e5e5e5;
-  text-align: center;
-  padding: 1em;
+  padding: 0.5em;
+  text-align:center;
   cursor: default; }
   .apple_pagination a, .apple_pagination span {
+    text-align:center;
+    
     padding: 0.2em 0.3em; }
   .apple_pagination .disabled {
     color: #aaaaaa; }
