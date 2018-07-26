@@ -8,6 +8,15 @@ module Authors
 	    @posts = current_author.posts.most_recent
 	  end
 
+	  def search
+	  	@posts = Post.all
+	  	if params[:search]
+	  		@posts = Post.search(params[:search]).order("created_at DESC")
+	    else
+    	    @posts = Post.all.order('created_at DESC')
+  	    end
+ 	  end
+
 	  # GET /posts/1
 	  # GET /posts/1.json
 	  def show

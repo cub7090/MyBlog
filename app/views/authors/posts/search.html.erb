@@ -1,0 +1,73 @@
+<% if @posts.count >= 1%>
+
+
+<div class="row">
+  <% @posts.each do |post| %>
+    
+      <div class='col-sm-6 col-lg-4'>
+
+        <div class="card">
+          <div class="card-block">
+            <h4 class="card-title"><%= link_to post.title, post %></h4>
+            <p class="tags"><%= raw post.tags.map { |t| link_to t.name, posts_path(tag: t.name)}.join(', ') %></p>
+            <p class="published-date"><%= post.published_date %></p>
+            <div class="card-text">
+            <%= link_to post do %>
+              <p><%= truncate(post.description, length: 50) %></p>
+            <% end %>
+          </div>
+            <%= link_to 'Read', post, class: "btn btn-read"%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <h2><b>No Posts found!</b></h2>
+
+</div>
+  <% end %>
+
+<style type="text/css">
+  .card-topper {
+      height: 200px;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+    .card {
+    border: none;
+    border-radius: 0;
+    height: 400px;
+    margin-bottom: 20px;
+    background-color: white;
+    .card-block {
+      padding: 10px;
+      .card-title {
+        font-size: 1.3rem;
+        margin-bottom: 0;
+        a {
+          color: black;
+          text-decoration: none;
+        }
+      }
+      .tags {
+        margin-bottom: 0;
+        a {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 12px;
+        }
+      }
+      .published-date {
+        font-size: 0.8rem;
+        color: #787878;
+        font-weight: 300;
+        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
+      }
+      .card-text {
+        font-size: 0.9rem;
+        color: black;
+      }
+    }
+  }
+</style>

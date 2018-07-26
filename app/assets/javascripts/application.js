@@ -16,5 +16,6 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require ckeditor/init
+//= require social-share-button 
 //= require activestorage
 //= require_tree .

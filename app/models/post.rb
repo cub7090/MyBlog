@@ -39,4 +39,10 @@ class Post < ApplicationRecord
   def unpublish
     update(published: false, published_at: nil)
   end
+
+  def self.search(search)
+    where("title ILIKE ? OR body ILIKE ?", "%#{search}%", "%#{search}%")
+  end
+
+
 end
