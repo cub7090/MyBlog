@@ -22,5 +22,7 @@ Rails.application.routes.draw do
   	get 'posts' => 'posts#index', as: :posts
   	get 'posts/:id' => 'posts#show', as: :post
   end
+
+   get '*path', to: 'application#render404'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
