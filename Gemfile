@@ -33,6 +33,7 @@ gem "paperclip", "~> 6.0.0"
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'social-share-button'
+gem 'impressionist'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

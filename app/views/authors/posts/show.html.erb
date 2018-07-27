@@ -8,6 +8,15 @@
 
 <div class="row">
 	<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
+		<span class="right-place">
+			<h2>
+				<b>
+					<%= @post.impressionist_count(:filter=>:ip_address) %>	
+				</b>
+			
+				<%= "view".pluralize(@post.impressionist_count(:filter=>:ip_address)) %>
+			</h2>
+		</span>
 		<h1><%= @post.title %></h1>
 		<p><%= @post.published_date%></p>
 		<%= raw @post.body %>

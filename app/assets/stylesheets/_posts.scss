@@ -81,6 +81,13 @@
   }
 }
 
+.right-place {
+    position: absolute;
+    right: -120px;
+    width: 300px;
+    padding: 10px;
+}
+
 @media screen and (min-width: 34em) {
   .posts.index .card {
     height: 395px;

@@ -1,6 +1,7 @@
 module Authors
 		class PostsController < AuthorController
 	  before_action :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
+	  impressionist :actions=>[:show, :index]
 
 	  # GET /posts
 	  # GET /posts.json
@@ -11,16 +12,17 @@ module Authors
 	  def search
 	  	@posts = Post.all
 	  	if params[:search]
-	  		@posts = Post.search(params[:search]).order("created_at DESC")
+	  		@posts = storage.search(params[:search]).most_recent.paginate(:page => params[:page], :per_page => 9)
 	    else
-    	    @posts = Post.all.order('created_at DESC')
+    	    @posts = Post.most_recent.all.paginate(:page => params[:page], :per_page => 9)
   	    end
  	  end
 
 	  # GET /posts/1
 	  # GET /posts/1.json
-	  def show
-	  end
+      def show
+      	impressionist(@post)
+      end
 
 	  # GET /posts/new
 	  def new
@@ -82,6 +84,10 @@ module Authors
 	  end
 
 	  private
+
+	    def storage
+	    	Post.published
+	    end
 	    # Use callbacks to share common setup or constraints between actions.
 	    def set_post
 	      @post = current_author.posts.friendly.find(params[:id])

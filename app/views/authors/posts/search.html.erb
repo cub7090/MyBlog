@@ -1,3 +1,25 @@
+
+<!--
+  <div class="col-sm-6 col-lg-4">
+<% if @posts.count >= 1%>
+  <% @posts.each do |post| %>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to post.title, post%></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+<% end %>
+<% else %>
+  <h2><b>No Posts found!</b></h2>
+<% end %>
+</div>
+-->
+
+
+
 <% if @posts.count >= 1%>
 
 
@@ -7,16 +29,18 @@
       <div class='col-sm-6 col-lg-4'>
 
         <div class="card">
-          <div class="card-block">
-            <h4 class="card-title"><%= link_to post.title, post %></h4>
-            <p class="tags"><%= raw post.tags.map { |t| link_to t.name, posts_path(tag: t.name)}.join(', ') %></p>
-            <p class="published-date"><%= post.published_date %></p>
-            <div class="card-text">
+          <div class="card-body">
+            <h3 class="card-title"><%= link_to post.title, post %></h3>
+            <p class="card-text"><%= raw post.tags.map { |t| link_to t.name, posts_path(tag: t.name)}.join(', ') %></p>
+            <h6 class="card-text"><%= post.published_date %></h6>
+            <div class="description">
             <%= link_to post do %>
-              <p><%= truncate(post.description, length: 50) %></p>
+              
+                <p><%= truncate(post.description, length: 200) %></p>
+              
             <% end %>
           </div>
-            <%= link_to 'Read', post, class: "btn btn-read"%>
+            <%= link_to 'Read', post, class: "btn btn-primary"%>
           </div>
         </div>
       </div>
@@ -24,8 +48,18 @@
   <% else %>
     <h2><b>No Posts found!</b></h2>
 
-</div>
   <% end %>
+</div>
+<br>
+<br>
+
+<% if @posts.count>9 %>
+  <div class="apple_pagination justify-content-center">
+    <%= will_paginate @posts, container: false %>
+  </div>
+<% end %>
+
+
 
 <style type="text/css">
   .card-topper {
@@ -34,10 +68,14 @@
       background-size: cover;
       background-position: center;
     }
+    .description a{
+      color: black;
+      text-decoration: none;
+    }
     .card {
     border: none;
     border-radius: 0;
-    height: 400px;
+    height: 320px;
     margin-bottom: 20px;
     background-color: white;
     .card-block {

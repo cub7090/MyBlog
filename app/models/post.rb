@@ -6,6 +6,7 @@ class Post < ApplicationRecord
 
   extend FriendlyId
   friendly_id :title, use: :slugged
+  is_impressionable
 
   belongs_to :author
 
