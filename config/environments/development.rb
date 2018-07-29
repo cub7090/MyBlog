@@ -28,6 +28,13 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
+  
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_region: 'ap-south-1',
+    bucket:'<%= ENV['AWS_BUCKET']%>',
+    s3_credentials: "#{Rails.root}/config/aws.yml"
+  }
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
