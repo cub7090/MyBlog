@@ -45,6 +45,13 @@ Rails.application.configure do
 
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
+  
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_region: '<%= ENV['AWS_REGION'] %>',
+    bucket:'<%= ENV['AWS_BUCKET'] %>',
+    s3_credentials: "#{Rails.root}/config/aws.yml"
+  }
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
