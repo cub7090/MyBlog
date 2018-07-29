@@ -34,6 +34,7 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'social-share-button'
 gem 'impressionist'
+gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
