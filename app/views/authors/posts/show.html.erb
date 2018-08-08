@@ -4,10 +4,6 @@
 <div>
 	<%= link_to 'Edit', edit_authors_post_path(@post), class: 'btn btn-sm btn-warning' %>
 	<%= link_to 'Remove', authors_post_path(@post), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger' %>
-</div>
-
-<div class="row">
-	<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
 		<span class="right-place">
 			<h2>
 				<b>
@@ -17,9 +13,18 @@
 				<%= "view".pluralize(@post.impressionist_count(:filter=>:ip_address)) %>
 			</h2>
 		</span>
-		<h1><%= @post.title %></h1>
+</div>
+
+<br/>
+<div class="row">
+	<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
+		<div class="text-heading-post">
+			<h1><%= @post.title %></h1>
+		</div>
 		<p><%= @post.published_date%></p>
-		<%= raw @post.body %>
+		<span class="text-heading-post">
+			<%= raw @post.body %>
+		</span>
 	</div>
 </div>
 

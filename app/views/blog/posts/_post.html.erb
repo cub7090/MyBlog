@@ -4,12 +4,16 @@
      <div class="card-topper" style='background-image: url(<%= form_image_select(post) %>);'></div>
     <% end %>
     <div class="card-block">
-      <h4 class="card-title"><%= link_to post.title, post %></h4>
+      <h4 class="card-title">
+        <%= link_to post do%>
+          <%= truncate(post.title, length: 75) %>
+        <% end %>
+      </h4>
       <p class="tags"><%= raw post.tags.map { |t| link_to t.name, posts_path(tag: t.name)}.join(', ') %></p>
       <p class="published-date"><%= post.published_date %></p>
       <div class="card-text">
       <%= link_to post do %>
-        <p><%= truncate(post.description, length: 50) %></p>
+        <p><%= truncate(post.description, length: 75) %></p>
       <% end %>
     </div>
       <%= link_to 'Read', post, class: "btn btn-read"%>
