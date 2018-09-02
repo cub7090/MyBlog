@@ -53,6 +53,61 @@
   }
 }
 
+.posts.search {
+  .card {
+    border: none;
+    border-radius: 0;
+    height: 400px;
+    margin-bottom: 30px;
+    background-color: white;
+    .card-topper {
+      height: 200px;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+    .card-block {
+      padding: 10px;
+      .btn-read {
+        background-color: #e8e8e8;
+        font-weight: 300;
+        border-radius: 0;
+        margin-bottom: 30px;
+        color: black;
+        &:hover {
+          background-color: #d8d8d8;
+        }
+      }
+      .card-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        a {
+          color: black;
+          text-decoration: none;
+        }
+      }
+      .tags {
+        margin-bottom: 0;
+        a {
+          font-size: 14px;
+        }
+      }
+      .published-date {
+        font-size: 0.8rem;
+        color: #787878;
+        font-weight: 300;
+        margin-top: 0.3rem;
+        margin-bottom: 0.1rem;
+      }
+      .card-text a{
+        font-size: 0.9rem;
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
 .posts.edit, .posts.new {
   .card {
     .card-block {
@@ -115,6 +170,34 @@
 /* Extra large. Above 75em (1200px) */
 @media screen and (min-width: 75em) {
   .posts.index .card {
+    height: 520px;
+  }
+}
+
+/* */
+@media screen and (min-width: 14em) {
+  .posts.search .card {
+    height: 565px;
+  }
+}
+
+
+@media screen and (min-width: 34em) {
+  .posts.search .card {
+    height: 610px;
+  }
+}
+
+/* Medium. Above 48em (768px) */
+@media screen and (min-width: 48em) {
+  .posts.search .card {
+    height: 565px;
+  }
+}
+
+/* Extra large. Above 75em (1200px) */
+@media screen and (min-width: 75em) {
+  .posts.search .card {
     height: 520px;
   }
 }
