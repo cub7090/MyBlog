@@ -35,6 +35,7 @@ gem 'acts-as-taggable-on', '~> 6.0'
 gem 'social-share-button'
 gem 'impressionist'
 gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
+gem "font-awesome-rails"
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
